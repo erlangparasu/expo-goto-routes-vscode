@@ -1,4 +1,4 @@
-# expo-goto-routes-vscode README
+# expo-goto-routes-vscode
 
 This is the README for your extension "expo-goto-routes-vscode". After writing up a brief description, we recommend including the following sections.
 

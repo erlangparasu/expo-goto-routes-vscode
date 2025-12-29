@@ -4,13 +4,8 @@ This is the README for your extension "expo-goto-routes-vscode". After writing u
 
 ## Features
 
-Describe specific features of your extension including screenshots of your extension in action. Image paths are relative to this README file.
+This extension provides a "Go to file" CodeLens for Expo framework routes. When you have code like `pathname: "/path/to/screen"`, it adds a clickable link above the line that will open the corresponding file (e.g., `app/path/to/screen.tsx` or `app/path/to/screen/index.tsx`). This allows for quick navigation from route definitions to the actual screen files in an Expo project.
 
-For example if there is an image subfolder under your extension project workspace:
-
-\!\[feature X\]\(images/feature-x.png\)
-
-> Tip: Many popular extensions utilize animations. This is an excellent way to show off your extension! We recommend short, focused animations that are easy to follow.
 
 ## Requirements
 

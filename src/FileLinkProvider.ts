@@ -1,6 +1,19 @@
 import * as vscode from 'vscode';
 import * as path from 'path';
 import * as ts from 'typescript';
+import * as fs from 'fs';
+
+function isValidFileSystemPath(value: string, documentUri: vscode.Uri): boolean {
+    // 1. Handle relative paths (e.g., "./images/logo.png")
+    // We must resolve them relative to the current file's directory
+    // const currentDir = path.dirname(documentUri.fsPath);
+
+    const fullPath = path.resolve(documentUri.fsPath, value);
+    console.log({fullPath});
+
+    // 2. Check if the path exists
+    return fs.existsSync(fullPath);
+}
 
 export class FileLinkProvider implements vscode.CodeLensProvider {
     private regex: RegExp;
@@ -42,13 +55,33 @@ export class FileLinkProvider implements vscode.CodeLensProvider {
 
                         console.log(`Found value: ${value} at line ${line + 1}`);
 
-                        const filePath = "./app/" + value + "/index.tsx";
+                        let selectedFilePath = "";
+                        const filePath1 = "./app/" + value + "/index.tsx";
+                        const filePath2 = "./app/" + value + ".tsx";
+
+                        const rootDoc = vscode.workspace.getWorkspaceFolder(document.uri);
+                        const plainRoot = rootDoc?.uri.fsPath;
+
+                        if (isValidFileSystemPath(filePath1, vscode.Uri.file(plainRoot!))) {
+                            selectedFilePath = filePath1;
+                        }
+                        if (isValidFileSystemPath(filePath2, vscode.Uri.file(plainRoot!))) {
+                            selectedFilePath = filePath2;
+                        }
+
+                        console.log({
+                            filePath1: filePath1,
+                            filePath2: filePath2,
+                            rootDoc: rootDoc?.uri.fsPath,
+                            selectedFilePath: selectedFilePath,
+                        });
+
                         const ll = document.lineAt(line);
 
                         const command: vscode.Command = {
                             title: "Go to file",
                             command: "expo-goto-routes-vscode.openFile",
-                            arguments: [filePath],
+                            arguments: [selectedFilePath],
                         };
                         lenses.push(new vscode.CodeLens(ll.range, command));
                     }

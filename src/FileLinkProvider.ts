@@ -41,6 +41,16 @@ export class FileLinkProvider implements vscode.CodeLensProvider {
                         const fullLineText = document.lineAt(line).text;
 
                         console.log(`Found value: ${value} at line ${line + 1}`);
+
+                        const filePath = "./app/" + value + "/index.tsx";
+                        const ll = document.lineAt(line);
+
+                        const command: vscode.Command = {
+                            title: "Go to file",
+                            command: "expo-goto-routes-vscode.openFile",
+                            arguments: [filePath],
+                        };
+                        lenses.push(new vscode.CodeLens(ll.range, command));
                     }
                 }
             }
@@ -68,7 +78,7 @@ export class FileLinkProvider implements vscode.CodeLensProvider {
                     command: "expo-goto-routes-vscode.openFile",
                     arguments: [filePath],
                 };
-                lenses.push(new vscode.CodeLens(range, command));
+                // lenses.push(new vscode.CodeLens(range, command));
             }
         }
 

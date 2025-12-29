@@ -1,6 +1,6 @@
 # expo-goto-routes-vscode
 
-This is the README for your extension "expo-goto-routes-vscode". After writing up a brief description, we recommend including the following sections.
+Expo goto Routes for Visual Studio Code
 
 ## Features
 

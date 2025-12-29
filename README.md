@@ -6,6 +6,7 @@ This is the README for your extension "expo-goto-routes-vscode". After writing u
 
 This extension provides a "Go to file" CodeLens for Expo framework routes. When you have code like `pathname: "/path/to/screen"`, it adds a clickable link above the line that will open the corresponding file (e.g., `app/path/to/screen.tsx` or `app/path/to/screen/index.tsx`). This allows for quick navigation from route definitions to the actual screen files in an Expo project.
 
+<!--
 
 ## Requirements
 
@@ -62,5 +63,7 @@ You can author your README using Visual Studio Code. Here are some useful editor
 
 * [Visual Studio Code's Markdown Support](http://code.visualstudio.com/docs/languages/markdown)
 * [Markdown Syntax Reference](https://help.github.com/articles/markdown-basics/)
+
+-->
 
 **Enjoy!**

@@ -1,13 +1,18 @@
 {
   "name": "expo-goto-routes-vscode",
-  "description": "An extension to quickly navigate to file paths found in your code.",
-  "version": "1.0.4",
+  "description": "An extension to quickly navigate to file paths found in your Expo project.",
+  "version": "1.0.5",
   "publisher": "erlangparasu",
   "engines": {
     "vscode": "^1.107.0"
   },
   "categories": [
     "Other"
+  ],
+  "keywords": [
+    "expo",
+    "router",
+    "navigation"
   ],
   "activationEvents": [
     "onLanguage:typescript",

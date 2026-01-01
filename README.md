@@ -1,10 +1,15 @@
 # expo-goto-routes-vscode
 
-Expo goto Routes for Visual Studio Code
+Quickly navigate from router caller to route file found in your Expo project.
 
 ## Features
 
-This extension provides a "Go to file" CodeLens for Expo framework routes. When you have code like `pathname: "/path/to/screen"`, it adds a clickable link above the line that will open the corresponding file (e.g., `app/path/to/screen.tsx` or `app/path/to/screen/index.tsx`). This allows for quick navigation from route definitions to the actual screen files in an Expo project.
+This extension provides a "Go to file" CodeLens for Expo project.
+
+When you have code like router push `{ pathname: "/path/to/screen" }`, it adds a clickable link above the line that will open the corresponding file.
+(e.g., `app/path/to/screen.tsx` or `app/path/to/screen/index.tsx`)
+
+This allows for quick navigation from route definitions to the actual screen files in an Expo project.
 
 <!--
 

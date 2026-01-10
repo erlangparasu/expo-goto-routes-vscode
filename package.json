@@ -1,7 +1,7 @@
 {
   "name": "expo-goto-routes-vscode",
-  "description": "An extension to quickly navigate to file paths found in your Expo project.",
-  "version": "1.0.5",
+  "description": "An extension to quickly navigate from router calls to open route file in your Expo project.",
+  "version": "1.0.6",
   "publisher": "erlangparasu",
   "engines": {
     "vscode": "^1.107.0"
@@ -10,7 +10,10 @@
     "Other"
   ],
   "keywords": [
+    "react",
+    "reactnative",
     "expo",
+    "route",
     "router",
     "navigation"
   ],

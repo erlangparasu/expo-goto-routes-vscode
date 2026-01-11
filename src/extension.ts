@@ -5,7 +5,7 @@ export function activate(context: vscode.ExtensionContext) {
     const fileLinkProvider = new FileLinkProvider();
 
     const disposableProvider = vscode.languages.registerCodeLensProvider(
-        { scheme: 'file' }, // Apply to all files
+        { scheme: 'file' }, // NOTE: Apply to all files
         fileLinkProvider
     );
 
@@ -26,9 +26,9 @@ export function activate(context: vscode.ExtensionContext) {
                     await vscode.workspace.fs.stat(absolutePath);
                     await vscode.window.showTextDocument(absolutePath);
                     fileFound = true;
-                    break; 
+                    break;
                 } catch (error) {
-                    // Not found, try next extension
+                    // NOTE: Not found, try next extension
                 }
             }
             if (fileFound) {

@@ -4,14 +4,14 @@ import * as ts from 'typescript';
 import * as fs from 'fs';
 
 function isValidFileSystemPath(value: string, documentUri: vscode.Uri): boolean {
-    // 1. Handle relative paths (e.g., "./images/logo.png")
+    // NOTE: Handle relative paths (e.g., "./images/logo.png")
     // We must resolve them relative to the current file's directory
     // const currentDir = path.dirname(documentUri.fsPath);
 
     const fullPath = path.resolve(documentUri.fsPath, value);
     console.log({fullPath});
 
-    // 2. Check if the path exists
+    // NOTE: Check if the path exists
     return fs.existsSync(fullPath);
 }
 
@@ -19,7 +19,7 @@ export class FileLinkProvider implements vscode.CodeLensProvider {
     private regex: RegExp;
 
     constructor() {
-        // This regex looks for relative paths in quotes, requiring at least one '/'
+        // NOTE: This regex looks for relative paths in quotes, requiring at least one '/'
         // this.regex = /(['"])((?:\.\/|\.\.\/|\/)?[\w-]+\/[\w\-\/]+)(['"])/g;
         this.regex = /(pathname)[:]{1}/g;
     }
@@ -37,19 +37,19 @@ export class FileLinkProvider implements vscode.CodeLensProvider {
         );
 
         function findPathnames(node: ts.Node) {
-            // Check if the node is a property assignment like pathname: "value"
+            // NOTE: Check if the node is a property assignment like pathname: "value"
             if (ts.isPropertyAssignment(node)) {
                 const name = node.name.getText(sourceFile);
 
-                // Match the key name (handles both pathname and "pathname")
+                // NOTE: Match the key name (handles both pathname and "pathname")
                 if (name === 'pathname' || name === '"pathname"' || name === "'pathname'") {
                     const valueNode = node.initializer;
 
-                    // Check if the value is a string literal
+                    // NOTE: Check if the value is a string literal
                     if (ts.isStringLiteral(valueNode)) {
                         const value = valueNode.text; // This is your "value"
 
-                        // Get line number for VS Code
+                        // NOTE: Get line number for VS Code
                         const { line } = sourceFile.getLineAndCharacterOfPosition(valueNode.getStart());
                         const fullLineText = document.lineAt(line).text;
 
@@ -88,7 +88,7 @@ export class FileLinkProvider implements vscode.CodeLensProvider {
                 }
             }
 
-            // Continue searching children
+            // NOTE: Continue searching children
             ts.forEachChild(node, findPathnames);
         }
 
@@ -105,14 +105,14 @@ export class FileLinkProvider implements vscode.CodeLensProvider {
 
             const filePath = matches[2];
 
-            if (range) {
-                const command: vscode.Command = {
-                    title: "Go to file",
-                    command: "expo-goto-routes-vscode.openFile",
-                    arguments: [filePath],
-                };
-                // lenses.push(new vscode.CodeLens(range, command));
-            }
+            // if (range) {
+            //     const command: vscode.Command = {
+            //         title: "Go to file",
+            //         command: "expo-goto-routes-vscode.openFile",
+            //         arguments: [filePath],
+            //     };
+            //     lenses.push(new vscode.CodeLens(range, command));
+            // }
         }
 
         return lenses;

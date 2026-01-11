@@ -4,12 +4,26 @@ Quickly navigate from router caller to route file found in your Expo project.
 
 ## Features
 
-This extension provides a "Go to file" CodeLens for Expo project.
+This extension provides a "Go to file" CodeLens for Expo project
 
 When you have code like router push `{ pathname: "/path/to/screen" }`, it adds a clickable link above the line that will open the corresponding file.
 (e.g., `app/path/to/screen.tsx` or `app/path/to/screen/index.tsx`)
 
-This allows for quick navigation from route definitions to the actual screen files in an Expo project.
+This allows for quick navigation from route definitions to the actual screen files in an Expo project
+
+## How to use?
+
+<img src="docs/screenshoot-1.png" />
+
+<br/>
+
+Only need to tap on `Go to file`, then `.tsx` route file will opened for you
+
+Examples:
+
+`{ pathname: "/(auth)/login" }` will open: `app/(auth)/login.tsx` file
+
+`{ pathname: "/(tabs)/home-tab" }` will open: `app/(tabs)/home-tab.tsx` file
 
 <!--
 
@@ -71,4 +85,10 @@ You can author your README using Visual Studio Code. Here are some useful editor
 
 -->
 
+<br />
+
 **Enjoy!**
+
+<br />
+
+Tags: `expo` `router` `react` `reactnative` `vscode` `navigation`

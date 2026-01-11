@@ -3,6 +3,10 @@
   "description": "An extension to quickly navigate from router calls to open route file in your Expo project.",
   "version": "1.0.6",
   "publisher": "erlangparasu",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/erlangparasu/expo-goto-routes-vscode.git"
+  },
   "engines": {
     "vscode": "^1.107.0"
   },
